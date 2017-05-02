@@ -1,0 +1,7 @@
+server = "automate.chefconf.priv"
+api_protocol = "https"
+user = "admin"
+enterprise = "demo"
+organization = "chefconf"
+git_port = "8989"
+pipeline = "master"
