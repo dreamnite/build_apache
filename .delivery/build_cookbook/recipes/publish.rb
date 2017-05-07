@@ -2,4 +2,4 @@
 # Cookbook:: build_cookbook
 # Recipe:: publish
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Jp Robinson, All Rights Reserved.
