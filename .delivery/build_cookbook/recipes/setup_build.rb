@@ -5,7 +5,7 @@
 # Copyright:: 2017, Jp Robinson, All Rights Reserved.
 
 # Steps to set up a build of the correct apache version
-build_config = ab_load_config("#{workflow_workspace_repo}/#{node['apache_build']['config_file']}") # Load and parse the config file
+build_config = ab_load_config(node['apache_build']['config_file']) # Load and parse the config file
 
 build_config['required_build_packages'].each do |cur_package|
   package cur_package # Install packages required to make the build run
