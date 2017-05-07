@@ -4,7 +4,7 @@
 "apr_utils_version": "1.6.0",
 "build_number": "0.0.1",
 "configure_options": [ "with-ssl", "prefix=/opt/apache" ],
-"required_build_packages": ["git", "automake", "gcc", "openssl-devel", "python", "perl", "libtool", "openssl", "libuuid-devel", "libxml2-devel"],
+"required_build_packages": "git automake gcc openssl-devel python perl libtool openssl libuuid-devel libxml2-devel",
 "apache_source": "https://github.com/apache/httpd.git",
 "apr_source": "https://github.com/apache/apr.git",
 "apr_utils_source": "https://github.com/apache/apr-util.git" 
