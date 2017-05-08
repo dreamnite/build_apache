@@ -5,7 +5,7 @@
 # Copyright:: 2017, Jp Robinson, All Rights Reserved.
 
 include_recipe 'build_cookbook::perform_build' # Make sure prereqs are done
-with server_config do # Chef server context, so we can get the databag.
+with_server_config do # Chef server context, so we can get the databag.
   begin
     publish_info = data_bag_item('build_apache', 'publish_info')
   rescue
