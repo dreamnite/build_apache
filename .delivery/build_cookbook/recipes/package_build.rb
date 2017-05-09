@@ -37,13 +37,14 @@ with_server_config do # Chef server context, so we can get the databag.
     file "#{workflow_workspace_repo}/ssh_key" do
       content publish_info['key']
       mode '0700'
+      sensitive true
     end
 
     sudo = 'sudo' if publish_info['sudo']
     bash 'Publishing tar file' do
       code <<-EOH
         scp -o StrictHostKeyChecking=no -i #{workflow_workspace_repo}/ssh_key #{workflow_workspace_repo}/#{build_file} #{publish_info['user']}@#{publish_info['host']}:~/
-        ssh -o StrictHostKeyChecking=no -i #{workflow_workspace_repo}/ssh_key #{publish_info['user']}@#{publish_info['host']} "#{sudo} mv ~/#{build_file} #{publish_info['dir']}/
+        ssh -o StrictHostKeyChecking=no -i #{workflow_workspace_repo}/ssh_key #{publish_info['user']}@#{publish_info['host']} "#{sudo} mv ~/#{build_file} #{publish_info['dir']}/; #{sudo} chown apache.apache #{publish_info['dir']}/#{build_file}"
         EOH
       action :run
     end
