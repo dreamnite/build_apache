@@ -17,7 +17,7 @@ ruby_block 'Set Package URL for current environment' do
         env_name = if node['delivery']['change']['stage'] == 'acceptance'
                     get_acceptance_environment
                   else 
-                    node['delivery']['change']['stage'] == 'acceptance'
+                    node['delivery']['change']['stage']
                   end
         
         cur_env = ::DeliveryTruck::Helpers::Provision.fetch_or_create_environment(env_name) # Helper method from delivery-truck's provision stage
