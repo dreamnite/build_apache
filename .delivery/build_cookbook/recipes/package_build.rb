@@ -36,6 +36,7 @@ with_server_config do # Chef server context, so we can get the databag.
   unless publish_info.empty?
     file "#{workflow_workspace_repo}/ssh_key" do
       content publish_info['key']
+      mode '0700'
     end
 
     sudo = 'sudo' if publish_info['sudo']
