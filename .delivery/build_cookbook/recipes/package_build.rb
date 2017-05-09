@@ -15,6 +15,7 @@ with_server_config do # Chef server context, so we can get the databag.
 
   # Steps to package up what is produced by the build
   build_config = ab_load_config(node['apache_build']['config_file']) # Load and parse the config file
+  dev_null = '>/dev/null' if build_config['less_output']
   build_file = "custom-httpd-#{build_config['build_number']}.tar.gz"
   src_dir = "#{workflow_workspace_repo}/httpd" # Root source directory
   build_root = "#{workflow_workspace_repo}/build"
@@ -22,13 +23,13 @@ with_server_config do # Chef server context, so we can get the databag.
   bash 'Cleaning build directory' do
     code "rm -rf #{build_root}"
   end
-  bash 'Running Make' do
-    code "make DESTDIR=#{build_root} install"
+  bash 'Running Make install' do
+    code "make DESTDIR=#{build_root} install #{dev_null}"
     cwd src_dir
   end
 
   bash 'Packaging build' do
-    code "tar cvzf #{workflow_workspace_repo}/#{build_file} *"
+    code "tar cvzf #{workflow_workspace_repo}/#{build_file} * #{dev_null}"
     cwd build_root
   end
 

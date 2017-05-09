@@ -13,7 +13,7 @@ ruby_block 'Set Package URL for current environment' do
         publish_info = nil
       end
       unless publish_info.nil?
-        package_url = "http://#{publish_info['host']}/#{publish_info['dir'].gsub(package_info['docroot'], '')}/custom-httpd-#{build_config['build_number']}.tar.gz"
+        package_url = "http://#{publish_info['host']}/#{publish_info['dir'].gsub(publish_info['docroot'], '')}/custom-httpd-#{build_config['build_number']}.tar.gz"
         env_name = if node['delivery']['change']['stage'] == 'acceptance'
                      get_acceptance_environment
                    else
