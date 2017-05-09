@@ -7,5 +7,6 @@
 "required_build_packages": "git automake gcc openssl-devel python perl libtool openssl libuuid-devel libxml2-devel expat-devel",
 "apache_source": "https://github.com/apache/httpd.git",
 "apr_source": "https://github.com/apache/apr.git",
-"apr_utils_source": "https://github.com/apache/apr-util.git" 
+"apr_utils_source": "https://github.com/apache/apr-util.git",
+"less_output": true 
 }
