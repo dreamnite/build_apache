@@ -20,6 +20,6 @@ bash "Running configure with options: #{build_config['configure_options'].join('
 end
 
 bash 'Running Make' do
-  code 'make #{dev_null}'
+  code "make #{dev_null}"
   cwd src_dir
 end
