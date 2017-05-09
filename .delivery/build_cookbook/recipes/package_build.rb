@@ -15,7 +15,7 @@ with_server_config do # Chef server context, so we can get the databag.
 
   # Steps to package up what is produced by the build
   build_config = ab_load_config(node['apache_build']['config_file']) # Load and parse the config file
-  dev_null = '>/dev/null' if build_config['less_output']
+  dev_null = '2>&1>/dev/null' if build_config['less_output']
   build_file = "custom-httpd-#{build_config['build_number']}.tar.gz"
   src_dir = "#{workflow_workspace_repo}/httpd" # Root source directory
   build_root = "#{workflow_workspace_repo}/build"

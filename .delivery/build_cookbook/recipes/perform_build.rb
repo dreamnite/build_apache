@@ -7,7 +7,7 @@
 include_recipe 'build_cookbook::setup_build' ## Just to be sure we don't accidently forget to include the setup phase
 ## Steps to actually build/compile apache
 build_config = ab_load_config(node['apache_build']['config_file']) # Load and parse the config file
-dev_null = '>/dev/null' if build_config['less_output']
+dev_null = '2>&1>/dev/null' if build_config['less_output']
 src_dir = "#{workflow_workspace_repo}/httpd" # Root source directory
 bash 'Clean up old builds if needed' do
   code "make clean #{dev_null}"
