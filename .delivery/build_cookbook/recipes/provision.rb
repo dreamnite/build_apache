@@ -21,7 +21,7 @@ ruby_block 'Set Package URL for current environment' do
                    end
 
         cur_env = ::DeliveryTruck::Helpers::Provision.fetch_or_create_environment(env_name) # Helper method from delivery-truck's provision stage
-        cur_env.default_attributes['custom-apache'] = {} if cur_env.default_attributes['apache_build'].nil? # Init top level, if not already present
+        cur_env.default_attributes['custom-apache'] = {} if cur_env.default_attributes['custom-apache'].nil? # Init top level, if not already present
         cur_env.default_attributes['custom-apache']['url'] = package_url
         cur_env.default_attributes['custom-apache']['docroot'] = publish_info['docroot']
         cur_env.default_attributes['custom-apache']['build_number'] = build_config['build_number']
