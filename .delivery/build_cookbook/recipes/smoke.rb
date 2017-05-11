@@ -28,7 +28,7 @@ with_server_config do
     action :run
   end
 
-  template '#{workflow_workspace_repo}/min_httpd_conf.conf' do
+  template "#{workflow_workspace_repo}/min_httpd_conf.conf" do
     source 'min_httpd_conf.erb'
     variables(server_root: "#{build_root}/opt/apache")
   end
