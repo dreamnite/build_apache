@@ -15,5 +15,11 @@ ruby_block 'Test the configuration loads and has the required items' do
     required_config_items.each do |config_item|
       raise "The required config item #{config_item} is not set." if parsed_conf[config_item].nil?
     end
+    with_server_config do
+      cur_env = ::DeliveryTruck::Helpers::Provision.fetch_or_create_environment('delivered')
+      unless cur_env.default_attributes['custom-apache'].nil?
+        raise 'Build number needs an update' if cur_env.default_attributes['custom-apache']['build_number'] == parsed_conf['build_number']
+      end
+    end
   end
 end
