@@ -18,12 +18,14 @@ with_server_config do
   directory build_root do
     action :create
   end
-
-  tar_extract cur_env.default_attributes['custom-apache']['url'] do
-    target_dir build_root
-    compress_char 'z'
-    user build_user
-    group build_user
+  remote_file "#{build_root}/custom-apache.tgz" do
+    source cur_env.default_attributes['custom-apache']['url']
+    action :create 
+  end
+  bash 'Extract Tar File' do
+    code "tar xvzf #{build_root}/custom-apache.tgz"
+    cwd build_root
+    action :run
   end
 
   template '#{workflow_workspace_repo}/min_httpd_conf.conf' do
