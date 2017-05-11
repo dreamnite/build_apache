@@ -6,13 +6,13 @@
 with_server_config do
   # retrieve what we set in provision
   env_name = if node['delivery']['change']['stage'] == 'acceptance'
-              get_acceptance_environment
-            else
-              node['delivery']['change']['stage']
-            end
+               get_acceptance_environment
+             else
+               node['delivery']['change']['stage']
+             end
 
   cur_env = ::DeliveryTruck::Helpers::Provision.fetch_or_create_environment(env_name) # Helper method from delivery-truck's provision stage
-  
+
   build_root = "#{workflow_workspace_repo}/smoke_test"
 
   directory build_root do
