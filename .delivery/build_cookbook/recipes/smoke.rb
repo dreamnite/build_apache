@@ -22,6 +22,8 @@ with_server_config do
   tar_extract cur_env.default_attributes['custom-apache']['url'] do
     target_dir build_root
     compress_char 'z'
+    user build_user
+    group build_user
   end
 
   template '#{workflow_workspace_repo}/min_httpd_conf.conf' do

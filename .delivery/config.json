@@ -4,7 +4,7 @@
     "name": "build_cookbook",
     "path": ".delivery/build_cookbook"
   },
-  "skip_phases": ["unit"],
+  "skip_phases": ["unit","publish"],
   "job_dispatch": {
     "version": "v2"
   },
