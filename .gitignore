@@ -2,7 +2,7 @@
 Berksfile.lock
 .kitchen
 .vagrant
-
+.vscode
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

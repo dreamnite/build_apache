@@ -2,7 +2,7 @@
 "apache_version": "2.4.25",
 "apr_version": "1.6.0",
 "apr_utils_version": "1.6.0",
-"build_number": "0.0.1",
+"build_number": "0.0.2",
 "configure_options": [ "with-ssl", "prefix=/opt/apache" ],
 "required_build_packages": "git automake gcc openssl-devel python perl libtool openssl libuuid-devel libxml2-devel expat-devel",
 "apache_source": "https://github.com/apache/httpd.git",
