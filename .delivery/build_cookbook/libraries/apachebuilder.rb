@@ -1,5 +1,5 @@
 ## Helper modules for the build cookbook
-# Copyright:: 2017, Jp Robinson, All Rights Reserved.
+# Copyright:: 2017, Jp Robinson .
 
 module ApacheBuild
   module DSL ## Set up a module with helpers we need across the different recipes.
